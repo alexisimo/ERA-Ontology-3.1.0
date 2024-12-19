@@ -30,9 +30,7 @@ era-sh:BasicElementShape
 	a sh:NodeShape ;
 	sh:targetClass era:BasicElement .  
 
-era-sh:FeatureShape
-	a sh:NodeShape ;
-	sh:targetClass era:Feature .  
+
 
 
 # organisationCode: # 1.2.1.0.6.1, 1.1.0.0.0.1, 1.1.1.1.8.1, 1.2.1.0.0.1, 1.2.1.0.5.1, 1.2.2.0.0.1, 1.2.2.0.5.1 Check that the organisationRole instance points to the skos value for infrastructure manager.
@@ -144,7 +142,7 @@ era-sh:BelongsToUniqueIM
 	a sh:SPARQLConstraint ;
     era:affectedProperty era:belongsTo;
     era:affectedProperty era:organisationCode;
-    era:affectedProperty era:infrastructureElement;
+    era:affectedProperty era:infrastructureManager;
     era:affectedClass era:InfrastructureElement;
     era:affectedClass era:CommonCharacteristicsSubset;
     era:affectedClass era:OrganisationRole;
@@ -211,18 +209,7 @@ era-sh:NetReference
 	sh:severity sh:Violation ;
 	sh:message "netReference: The infratructure element must have a net reference that points to an instance of NetBasicReference. This error is due to having a value that is not an instance of NetBasicReference."@en .
 
-# validity
-era-sh:FeatureShape sh:property era-sh:Validity .
-era-sh:Validity
-	a sh:PropertyShape;
-    era:affectedClass era:Feature;
-    era:affectedProperty era:validity ;
-    era:scope "local";
-	rdfs:comment "Relates a feature with a temporal feature to indicate a validity period." ;
-	sh:path era:validity ;
-	sh:class era:TemporalFeature;
-	sh:severity sh:Violation ;
-	sh:message "validity: The feature has a validity value that points to an instance of TemporalFeature. This error is due to having a value that is not an instance of TemporalFeature."@en .
+
 
 # primaryLocation: #
 era-sh:AggregatedElementShape sh:property era-sh:PrimaryLocation .
@@ -237,6 +224,21 @@ era-sh:PrimaryLocation
     sh:nodeKind sh:IRI ;
 	sh:severity sh:Violation ;
 	sh:message "primaryLocation: The Operational Point has a primaryLocation reference that must be an IRI that refers to an instance of PrimaryLocation."@en .
+
+# hasPart: #
+era-sh:AggregatedElementShape sh:property era-sh:HasPart .
+era-sh:HasPart
+	a sh:PropertyShape;
+    era:affectedClass era:AggregatedElement;
+    era:affectedProperty era:hasPart ;
+    era:scope "local"; 
+	rdfs:comment "Indicates that an aggregated element has a part that is a basic element." ; 
+	sh:path era:hasPart ;
+	sh:class era:BasicElement;
+    sh:minCount 1;
+    sh:nodeKind sh:IRI ;
+	sh:severity sh:Violation ;
+	sh:message "hasPart: The AggregatedElement must have a hasPart reference that is an IRI that refers to an instance of BasicElement. This error is due to not having a value or having a value that is not an instance of BasicElement"@en .
 
 
 

@@ -903,7 +903,7 @@ era-sh:SectionOfLineShape sh:sparql era-sh:OtherPantographHeadSKOS.
 era-sh:CommonCharacteristicsSubsetShape sh:sparql era-sh:OtherPantographHeadSKOS.
 era-sh:OtherPantographHeadSKOS
 	a sh:SPARQLConstraint ;
-    era:affectedProperty era:otherPantographHea  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
+    era:affectedProperty era:otherPantographHead  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
     rdfs:comment "Indication of which other pantograph heads are allowed to be used." ;
 	era:rinfIndex "1.1.1.2.3.2" ;
 	sh:severity sh:Violation ;
@@ -956,7 +956,7 @@ era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:RaisedPantographsSpee
 # raisedPantographsNumber: # 1.1.1.2.3.3
  era-sh:SectionOfLineShape sh:property era-sh:RaisedPantographsNumber.
  era-sh:RaisedPantographsNumber
-	a sh:PropertyShape ; era:affectedProperty era-sh:RaisedPantographsNumber ;    era:affectedClass  era:RunningTrack;     era:scope "local";     
+	a sh:PropertyShape ; era:affectedProperty era:RaisedPantographsNumber ;    era:affectedClass  era:RunningTrack;     era:scope "local";     
     era:affectedClass  era:RaisedPantographsDistanceAndSpeed;
 	rdfs:comment "Indication of maximum number of raised pantographs per train allowed and minumum spacing centre line to centre line of adjacent pantograph heads, expressed in meters, at the given speed." ;
 	era:rinfIndex "1.1.1.2.3.3" ;
@@ -1112,10 +1112,10 @@ era-sh:HasSystemSeparation
  era-sh:SectionOfLineShape sh:property era-sh:SystemSeparationInfoKm.
 era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoKm.
  era-sh:SystemSeparationInfoKm
-	a sh:PropertyShape ; era:affectedProperty era:SystemSeparationInfoKm  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
+	a sh:PropertyShape ; era:affectedProperty era:systemSeparationInfoKm  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
     era:affectedClass  era:SystemSeparationInfo;
 	rdfs:comment "Indication of required several information on system separation." ;
-	sh:path (era:hasPart era:trackSystemSeparationInfo era:SystemSeparationInfoKm) ;
+	sh:path (era:hasPart era:trackSystemSeparationInfo era:systemSeparationInfoKm) ;
 	
     era:rinfIndex "1.1.1.2.4.2.2" ;
 	sh:datatype xsd:double ;
@@ -1125,11 +1125,11 @@ era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoK
 # systemSeparationInfoLength: # 1.1.1.2.4.2.2
  era-sh:SectionOfLineShape sh:property era-sh:SystemSeparationInfoLength.
 era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoLength.
- era-sh:SystemSeparationInfoLength
-	a sh:PropertyShape ; era:affectedProperty era:SystemSeparationInfoLength  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
+era-sh:SystemSeparationInfoLength
+	a sh:PropertyShape ; era:affectedProperty era:systemSeparationInfoLength  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
     era:affectedClass  era:SystemSeparationInfo;
 	rdfs:comment "Indication of required several information on system separation." ;
-	sh:path (era:hasPart era:trackSystemSeparationInfo era:SystemSeparationInfoLength) ;
+	sh:path (era:hasPart era:trackSystemSeparationInfo era:systemSeparationInfoLength) ;
     era:rinfIndex "1.1.1.2.4.2.2" ;
 	sh:datatype xsd:integer ;
 	sh:severity sh:Violation ;
@@ -1139,10 +1139,10 @@ era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoL
  era-sh:SectionOfLineShape sh:property era-sh:SystemSeparationInfoPantographLowered.
 era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoPantographLowered.
  era-sh:SystemSeparationInfoPantographLowered
-	a sh:PropertyShape ; era:affectedProperty era:SystemSeparationInfoPantographLowered  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
+	a sh:PropertyShape ; era:affectedProperty era:systemSeparationInfoPantographLowered  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
     era:affectedClass  era:SystemSeparationInfo;
 	rdfs:comment "Indication of required several information on system separation." ;
-	sh:path (era:hasPart era:trackSystemSeparationInfo era:SystemSeparationInfoPantographLowered) ;
+	sh:path (era:hasPart era:trackSystemSeparationInfo era:systemSeparationInfoPantographLowered) ;
 	
     era:rinfIndex "1.1.1.2.4.2.2" ;
 	sh:datatype xsd:boolean ;
@@ -1153,9 +1153,9 @@ era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoP
  era-sh:SectionOfLineShape sh:property era-sh:SystemSeparationInfoSwitchOffBreaker.
 era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoSwitchOffBreaker.
  era-sh:SystemSeparationInfoSwitchOffBreaker
-	a sh:PropertyShape ; era:affectedProperty era:SystemSeparationInfoSwitchOffBreaker  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
+	a sh:PropertyShape ; era:affectedProperty era:systemSeparationInfoSwitchOffBreaker  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
 	rdfs:comment "Indication of required several information on system separation." ;
-	sh:path (era:hasPart era:trackSystemSeparationInfo era:SystemSeparationInfoSwitchOffBreaker) ;
+	sh:path (era:hasPart era:trackSystemSeparationInfo era:systemSeparationInfoSwitchOffBreaker) ;
     era:affectedClass  era:SystemSeparationInfo;
 	
     era:rinfIndex "1.1.1.2.4.2.2" ;
@@ -1167,10 +1167,10 @@ era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoS
  era-sh:SectionOfLineShape sh:property era-sh:SystemSeparationInfoChangeSupplySystem.
 era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:SystemSeparationInfoChangeSupplySystem.
  era-sh:SystemSeparationInfoChangeSupplySystem
-	a sh:PropertyShape ; era:affectedProperty era:SystemSeparationInfoChangeSupplySystem  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
+	a sh:PropertyShape ; era:affectedProperty era:systemSeparationInfoChangeSupplySystem  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
     era:affectedClass  era:SystemSeparationInfo;
 	rdfs:comment "Indication of required several information on system separation." ;
-	sh:path (era:hasPart era:trackSystemSeparationInfo era:SystemSeparationInfoChangeSupplySystem) ;
+	sh:path (era:hasPart era:trackSystemSeparationInfo era:systemSeparationInfoChangeSupplySystem) ;
 	
     era:rinfIndex "1.1.1.2.4.2.2" ;
 	sh:datatype xsd:string ;
@@ -1572,17 +1572,17 @@ era-sh:LinesideDistanceIndicationFrequency
 	sh:severity sh:Violation ;
 	sh:message "linesideDistanceIndicationFrequency (1.1.1.0.0.3): The track must have at most one value of the lineside distance indication frequency. This error may be due to the track having no value, more than one value or to having a value that is not an integer."@en .
 
-# 1.1.1.2.4.1.2 phaseInfoChangesupplySystem
-era-sh:SectionOfLineShape sh:property era-sh:PhaseInfoChangesupplySystem.
-era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:PhaseInfoChangesupplySystem.
-era-sh:PhaseInfoChangesupplySystem
+# 1.1.1.2.4.1.2 phaseInfoChangeSupplySystem
+era-sh:SectionOfLineShape sh:property era-sh:PhaseInfoChangeSupplySystem.
+era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:PhaseInfoChangeSupplySystem.
+era-sh:PhaseInfoChangeSupplySystem
 	a sh:PropertyShape ; 
-    era:affectedProperty era:phaseInfoChangesupplySystem;
+    era:affectedProperty era:phaseInfoChangeSupplySystem;
     era:affectedClass  era:RunningTrack;
     era:scope "local";
 	rdfs:comment "Part of the phase info of a track that corresponds to the single selection of Y=yes or N=no to show if the energy supply system changes" ;
 	era:rinfIndex "1.1.1.2.4.1.2" ;
-	sh:path (era:hasPart era:phaseInfoChangesupplySystem) ;
+	sh:path (era:hasPart era:trackPhaseInfo era:phaseInfoChangeSupplySystem) ;
 	sh:datatype xsd:boolean ;
 	sh:severity sh:Violation ;
 	sh:message "phaseInfoChangesupplySystem (1.1.1.2.4.1.2): The track may have a phase info change supply system value that is a boolean. This error may be due to the track having a value that is not a boolean."@en .
@@ -2260,22 +2260,6 @@ era-sh:TrackLoadCapabilityProps
   }
 			""" .
 
-# conditionsAppliedRegenerativeBraking: # 1.1.1.2.2.4.1
-era-sh:SectionOfLineShape sh:property era-sh:ConditionsAppliedRegenerativeBraking .
-era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:ConditionsAppliedRegenerativeBraking .
-era-sh:ConditionsAppliedRegenerativeBraking
-	a sh:PropertyShape;
-    era:affectedClass era:RunningTrack;
-    era:affectedClass era:SectionOfLine;
-    era:affectedProperty era:conditionsAppliedRegenerativeBraking ;
-    era:scope "local";
-	rdfs:comment "Name and/or reference of the document specifying the conditions applying in regards to regenerative braking." ;
-	era:rinfIndex "1.1.1.2.2.4.1" ;
-	sh:path (era:hasPart era:conditionsAppliedRegenerativeBraking) ;
-	sh:class era:Document;
-    sh:maxCount 1 ;
-	sh:severity sh:Violation ;
-	sh:message "conditionsAppliedRegenerativeBraking (1.1.1.2.2.4.1): The track has a conditionsAppliedRegenerativeBraking reference that must be a Document. This error is due to having more than one value for this property or having a value that is not a Document."@en .
 
 # conditionalRegenerativeBrake: # 1.1.1.2.2.4
 era-sh:SectionOfLineShape sh:property era-sh:ConditionalRegenerativeBrake .

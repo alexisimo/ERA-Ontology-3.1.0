@@ -48,7 +48,7 @@ era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:HasBeginning.
 era-sh:HasBeginning
 	a sh:PropertyShape;
     era:affectedClass era:ParameterApplicability;
-    era:affectedProperty era:hasBeginning ;
+    era:affectedProperty time:hasBeginning ;
     era:scope "local";
 	rdfs:comment "Applicability interval defines the date interval in which a characteristic of an infrastructure element is applicable."@en ;
 	sh:path time:hasBeginning ;
@@ -65,7 +65,7 @@ era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:HasEnd.
 era-sh:HasEnd
 	a sh:PropertyShape;
     era:affectedClass era:ParameterApplicability;
-    era:affectedProperty era:hasEnd ;
+    era:affectedProperty time:hasEnd ;
     era:scope "local";
 	rdfs:comment "Applicability interval defines the date interval in which a characteristic of an infrastructure element is applicable."@en ;
 	sh:path time:hasEnd ;

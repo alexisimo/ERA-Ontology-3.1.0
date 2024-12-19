@@ -9,7 +9,7 @@
 @prefix  era-ess: <http://data.europa.eu/949/concepts/energy-supply-systems/> .
 @prefix skos:<http://www.w3.org/2004/02/skos/core#> .
 #############################
-# Rules for contact-line-systems
+# Rules for ETCS
 #############################
 
 era-sh:ETCSShape  
