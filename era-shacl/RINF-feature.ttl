@@ -35,8 +35,8 @@ era-sh:Validity
 	sh:message "validity: The feature has a validity value that points to an instance of TemporalFeature. This error is due to having a value that is not an instance of TemporalFeature."@en .
 
 # hasGeometry: # 1.2.0.0.0.5, 1.1.0.0.1.1, 1.1.1.0.1.1, 1.1.1.3.14.6, 1.2.1.0.8.5
-era-sh:FeatureShape sh:property era-sh:hasGeometry .
-era-sh:hasGeometry
+era-sh:FeatureShape sh:property era-sh:HasGeometry .
+era-sh:HasGeometry
 	a sh:PropertyShape;
     era:affectedClass era:Feature;
     era:affectedProperty geosparql:hasGeometry ;
@@ -90,8 +90,8 @@ era-sh:Long
  	sh:message "wgs:long property. This error may be due to having a Geometry with more than one long property or it value is out of the longitude range of Europe." .
 
 # geosparql:asWKT
- era-sh:GeometryShape sh:property era-sh:Wkt .
- era-sh:Wkt
+ era-sh:GeometryShape sh:property era-sh:AsWKT .
+ era-sh:AsWKT
  	a sh:PropertyShape;
     era:affectedClass geosparql:Geometry;
      era:affectedProperty geosparql:asWKT ;

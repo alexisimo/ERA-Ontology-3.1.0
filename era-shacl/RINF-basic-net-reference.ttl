@@ -81,6 +81,8 @@ era-sh:AppliesToDirectionSKOS
 	}
 """ .
 
+
+
 # hasLrsCoordinate - hasLRS
 era-sh:NetPointReferenceShape sh:property era-sh:HasLrsCoordinate.
  era-sh:HasLrsCoordinate

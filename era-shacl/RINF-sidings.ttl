@@ -204,7 +204,21 @@ era-sh:MinimumHorizontalRadiusS
 	sh:severity sh:Violation ;
 	sh:message "minimumHorizontalRadius (1.2.2.0.3.2, 1.2.2.0.3.2): Each Siding may have a minimumHorizontalRadius in meters. This error is due to having more than one minimum horisontal radius  value or having a minimum horizontal radius that is not an integer number."@en. 
 
-# minimumVerticalRadiusCrest: # 1.2.2.0.3.3 
+# minimumVerticalRadius 1.2.2.0.3.3: 
+era-sh:SSidingsShape sh:property era-sh:MinimumVerticalRadius.
+era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:MinimumVerticalRadius.
+era-sh:MinimumVerticalRadius
+	a sh:PropertyShape ; era:affectedProperty era:minimumVerticalRadius ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
+	rdfs:comment "Indication of types of appearance of track lineside distance indications." ;
+	sh:path (era:hasPart era:minimumVerticalRadius);
+    sh:class era:MinimumVerticalRadius;
+    sh:maxCount 1;
+    era:rinfIndex "1.2.2.0.3.3";
+	sh:nodeKind sh:IRI;
+	sh:severity sh:Violation ;
+	sh:message "minimumVerticalRadius (1.2.2.0.3.3) : The track must have at most one value of minimum vertical radius that must be an instace of MinimumVerticalRadius. This error may be due to the track having more than one value or having a value that is not an instance of the class MinimumVerticalRadius."@en .
+
+# minimumVerticalRadiusCrest: 
 era-sh:SidingShape sh:property era-sh:MinimumVerticalRadiusCrest .
 era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:MinimumVerticalRadiusCrest .
 era-sh:MinimumVerticalRadiusCrest
@@ -213,14 +227,13 @@ era-sh:MinimumVerticalRadiusCrest
     era:affectedClass era:Siding;
     era:scope "local";
 	rdfs:comment "Radius of the smallest vertical curve expressed in meters, part that indicates the crest" ;
-	era:rinfIndex "1.2.2.0.3.3" ;
 	sh:path era:minimumVerticalRadiusCrest ;
 	sh:maxCount 1 ;
 	sh:datatype xsd:integer ;
 	sh:severity sh:Violation ;
-	sh:message "minimumVerticalRadiusCrest (1.2.2.0.3.3): Each Siding may have a minimumVerticalRadiusCrest in meters. This error is due to having more than one minimum vertical radius crest value or having a minimum vertical radius crest that is not an integer number."@en .
+	sh:message "minimumVerticalRadiusCrest : Each Siding may have a minimumVerticalRadiusCrest in meters. This error is due to having more than one minimum vertical radius crest value or having a minimum vertical radius crest that is not an integer number."@en .
 
-# minimumVerticalRadiusHollow: # 1.2.2.0.3.3
+# minimumVerticalRadiusHollow: 
 era-sh:SidingShape sh:property era-sh:MinimumVerticalRadiusHollow .
 era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:MinimumVerticalRadiusHollow .
 era-sh:MinimumVerticalRadiusHollow
@@ -229,12 +242,33 @@ era-sh:MinimumVerticalRadiusHollow
     era:affectedClass era:Siding;
     era:scope "local";
 	rdfs:comment "Radius of the smallest vertical curve expressed in meters, part that indicates the hollow" ;
-	era:rinfIndex "1.2.2.0.3.3" ;
 	sh:path era:minimumVerticalRadiusHollow ;
 	sh:maxCount 1 ;
 	sh:datatype xsd:integer ;
 	sh:severity sh:Violation ;
-	sh:message "minimumVerticalRadiusHollowt (1.2.2.0.3.3): Each Siding may have a minimumVerticalRadiusHollow in meters. This error is due to having more than one minimum vertical radius hollow value or having a minimum vertical radius hollow that is not an integer number."@en .
+	sh:message "minimumVerticalRadiusHollow: Each Siding may have a minimumVerticalRadiusHollow in meters. This error is due to having more than one minimum vertical radius hollow value or having a minimum vertical radius hollow that is not an integer number."@en .
+
+# minimumVerticalRadius 1.2.2.0.3.3: 
+era-sh:SidingsShape sh:sparql era-sh:MinimumVerticalRadiusProps.
+era-sh:CommonCharacteristicsSubsetShape sh:sparql era-sh:MinimumVerticalRadiusProps.
+era-sh:MinimumVerticalRadiusProps
+	a sh:PropertyShape ; era:affectedProperty era:minimumVerticalRadius ; era:affectedProperty era:minimumVerticalRadius ;     era:affectedClass  era:RunningTrack;     era:scope "local"; era:affectedProperty era:minimumVerticalRadiusCrest ;   era:affectedProperty era:minimumVerticalRadiusHollow ; 
+	rdfs:comment "Minimum radius of vertical curve" ;
+    sh:message "minimumVerticalRadius (1.2.2.0.3.3): The siding {$this} with label {?thisLabel}  has a minimum radius of vertical curve reference {?mmf} that must have an direction X value, a direction Y value and a direction Z value. This error may be due to not having all parts of the data presentation."@en ;
+	sh:severity sh:Violation ;
+	sh:prefixes era:;
+	sh:select """
+    PREFIX era: <http://data.europa.eu/949/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    SELECT DISTINCT $this ?thisLabel  ?mvr
+			WHERE {
+                $this era:minimumVerticalRadius ?mvr .
+                $this rdfs:label ?thisLabel .
+                {FILTER NOT EXISTS {?mvr era:minimumVerticalRadiusCrest}} UNION
+                {FILTER NOT EXISTS {?mvr era:minimumVerticalRadiusHollow ?value2}}
+            
+  }
+			""" .
 
 
 # hasToiletDischarge: # 1.2.2.0.4.1
