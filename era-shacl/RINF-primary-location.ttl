@@ -15,7 +15,7 @@ era-sh:PrimaryLocationShape
 	sh:targetClass era:PrimaryLocation.
 
 
-# primaryLocationCode: # 1.2.0.0.0.3 #pending checking pattern  [AANNNNN]
+# primaryLocationCode: # 1.2.0.0.0.3 
 era-sh:PrimaryLocationShape sh:property era-sh:PrimaryLocationCode .
 era-sh:PrimaryLocationCode
 	a sh:PropertyShape;

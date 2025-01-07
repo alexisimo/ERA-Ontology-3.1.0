@@ -203,7 +203,7 @@ era-sh:NetLinearReferenceShape sh:property era-sh:EndsAt.
     sh:maxCount 1;
     sh:class rdf:TopologicalCoordinate;
 	sh:severity sh:Violation ;
-	sh:message "endsAt The net linear reference specifies an ending coordinate that must be an instance of a TopologicalCoordinate. This error is due to not having a value, having more than one value or having a value that is not an instance of TopologicalCoordinate."@en .	
+	sh:message "endsAt: The net linear reference specifies an ending coordinate that must be an instance of a TopologicalCoordinate. This error is due to not having a value, having more than one value or having a value that is not an instance of TopologicalCoordinate."@en .	
 
 # kmPostName: 
 era-sh:LinearPositioningSystemShape sh:property era-sh:KmPostName .

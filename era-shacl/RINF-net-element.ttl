@@ -205,7 +205,7 @@ era-sh:LengthOfNetLinearElement
     era:scope "local";
 	rdfs:comment "Length of a linear element." ;
 	sh:path era:lengthOfNetLinearElement ;
-    sh:minCount 1;
+    sh:maxCount 1;
 	sh:datatype xsd:double ;
 	sh:severity sh:Violation ;
 	sh:message "lengthOfNetLinearElement: The linear element has at most one value of length and it is a double number. This error is due to having more than one value or that the value is not a double number."@en .

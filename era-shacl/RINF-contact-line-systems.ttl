@@ -5,8 +5,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix era: <http://data.europa.eu/949/> .
-@prefix  era-cls: <http://data.europa.eu/949/concepts/contact-line-systems/> .
-@prefix  era-ess: <http://data.europa.eu/949/concepts/energy-supply-systems/> .
 @prefix skos:<http://www.w3.org/2004/02/skos/core#> .
 #############################
 # Rules for contact-line-systems
@@ -241,7 +239,6 @@ era-sh:MaxCurrentStandstillPantographApplicability
 
 # conditionsAppliedRegenerativeBraking: # 1.1.1.2.2.4.1
 era-sh:SectionOfLineShape sh:property era-sh:ConditionsAppliedRegenerativeBraking .
-era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:ConditionsAppliedRegenerativeBraking .
 era-sh:ConditionsAppliedRegenerativeBraking
 	a sh:PropertyShape;
     era:affectedClass era:RunningTrack;
@@ -259,7 +256,6 @@ era-sh:ConditionsAppliedRegenerativeBraking
 
 # conditionsAppliedRegenerativeBraking: # 1.1.1.2.2.4.1 
 era-sh:ContactLineSystemShape sh:sparql era-sh:ConditionsAppliedRegenerativeBrakingApplicability .
-era-sh:CommonCharacteristicsSubsetShape sh:sparql era-sh:ConditionsAppliedRegenerativeBrakingApplicability .
 era-sh:ConditionsAppliedRegenerativeBrakingApplicability
 	a sh:SPARQLConstraint ;
     era:affectedProperty era:conditionsAppliedRegenerativeBraking;
