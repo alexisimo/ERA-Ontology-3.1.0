@@ -428,6 +428,30 @@ era-sh:MinVehicleImpedance
 	sh:severity sh:Violation ;
 	sh:message "minVehicleImpedance (1.1.1.3.4.2.2): The train detection system has a minimum vehicle impedance reference that must be a minimum vehicle impedance. This error may be due to having more than one value or having a value that is not an instance of a MinVehicleImpedance."@en .
 
+# minVehicleImpedance 1.1.1.3.4.2.2: 
+era-sh:TrainDetectionSystemShape sh:sparql era-sh:MinVehicleImpedanceApplicability .
+era-sh:MinVehicleImpedanceApplicability
+	a sh:SPARQLConstraint ;
+    era:affectedProperty era:minVehicleImpedance;
+    era:affectedClass era:MinVehicleImpedance;
+    era:scope "local";
+    era:rinfIndex "1.1.1.3.4.2.2" ;
+	rdfs:comment "The parameter minVehicleImpedance is applicable for track circuits." ;
+	sh:severity sh:Violation ;
+	sh:message "minVehicleImpedance (1.1.1.3.4.2.2):The Train Detection System {$this} ({?tdsLabel}), has a 'track circuit' type that makes the minVehicleImpedance parameter applicable. This error is due to not having a value for such a parameter."@en ;
+    sh:prefixes era:;
+	sh:select """
+    PREFIX era: <http://data.europa.eu/949/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    SELECT DISTINCT $this ?tdsLabel
+			WHERE {
+                $this era:trainDetectionSystemType <http://data.europa.eu/949/concepts/train-detection/rinf/10> .
+				OPTIONAL{$this rdfs:label ?tdsLabel} .
+                FILTER NOT EXISTS {$this era:minVehicleImpedance ?value} . 
+            }
+			""" .
+
+
 
 # minVehicleImpedanceVoltages: 
 era-sh:MinVehicleImpedanceShape sh:property era-sh:MinVehicleImpedanceVoltages .
@@ -468,28 +492,7 @@ era-sh:MinVehicleImpedanceVoltagesSKOS
 	}
 	""" .
 
-# minVehicleImpedanceVoltages: 
-era-sh:MinVehicleImpedanceShape sh:sparql era-sh:MinVehicleImpedanceVoltagesApplicability .
-era-sh:MinVehicleImpedanceVoltagesApplicability
-	a sh:SPARQLConstraint ;
-    era:affectedProperty era:minVehicleImpedanceVoltages;
-    era:affectedClass era:MinVehicleImpedance;
-    era:scope "local";
-	rdfs:comment "The parameter minVehicleImpedanceVoltages is applicable for track circuits." ;
-	sh:severity sh:Violation ;
-	sh:message "minVehicleImpedanceVoltages:The Train Detection System {$this} ({?clsLabel}), has a 'track circuit' type that makes the minVehicleImpedanceVoltages parameter applicable. This error is due to {?minVehicleImpedance} not having a value for such a parameter."@en ;
-    sh:prefixes era:;
-	sh:select """
-    PREFIX era: <http://data.europa.eu/949/>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
-			WHERE {
-                 $this era:trainDetectionSystemType <http://data.europa.eu/949/concepts/train-detection/rinf/10>;
-				 	   era:minVehicleImpedance ?minVehicleImpedance.
-				OPTIONAL{$this rdfs:label ?clsLabel} .
-                FILTER NOT EXISTS {?minVehicleImpedance era:minVehicleImpedanceVoltages ?value} . 
-            }
-			""" .
+
 
 
 # minVehicleInputCapacitance: 
@@ -505,52 +508,24 @@ era-sh:MinVehicleInputCapacitance
     sh:minCount 1;
 	sh:maxCount 1 ; # Functional property
 	sh:severity sh:Violation ;
-	sh:message "minVehicleInputCapacitance: Each minVehicleInput must define the minVehicleInputCapacitance in NanoFARAD. This error may be due to not having a value, having more than one value or having a value that is not a double (real) number."@en .
-
-# minVehicleInputCapacitance: 
-era-sh:MinVehicleImpedanceShape sh:sparql era-sh:MinVehicleInputCapacitanceApplicability .
-era-sh:MinVehicleInputCapacitanceApplicability
-	a sh:SPARQLConstraint ;
-    era:affectedProperty era:minVehicleInputCapacitance;
-    era:affectedClass era:MinVehicleImpedance;
-    era:scope "local";
-	rdfs:comment "The parameter minVehicleInputCapacitance is applicable for track circuits." ;
-	sh:severity sh:Violation ;
-	sh:message "minVehicleInputCapacitance:The Train Detection System {$this} ({?clsLabel}), has a 'track circuit' type that makes the minVehicleInputCapacitance parameter applicable. This error is due to {?minVehicleImpedance} not having a value for such a parameter."@en ;
-    sh:prefixes era:;
-	sh:select """
-    PREFIX era: <http://data.europa.eu/949/>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
-			WHERE {
-                 $this era:trainDetectionSystemType <http://data.europa.eu/949/concepts/train-detection/rinf/10>;
-				 	   era:minVehicleImpedance ?minVehicleImpedance.
-				OPTIONAL{$this rdfs:label ?clsLabel} .
-                FILTER NOT EXISTS {?minVehicleImpedance era:minVehicleInputCapacitance ?value} . 
-            }
-			""" .
-
+	sh:message "minVehicleInputCapacitance: Each MinVehicleImpedance must define the minVehicleInputCapacitance. This error may be due to not having a value, having more than one value or having a value that is not a double (real) number."@en .
 
 # minVehicleInputImpedance: 
-era-sh:MinVehicleImpedanceShape sh:sparql era-sh:MinVehicleInputImpedanceApplicability .
-era-sh:MinVehicleInputImpedanceApplicability
-	a sh:SPARQLConstraint ;
-    era:affectedProperty era:minVehicleInputImpedance;
-    era:affectedClass era:MinVehicleImpedance;
-    era:scope "local";
-	rdfs:comment "The parameter minVehicleInputImpedance is applicable for track circuits." ;
+era-sh:MinVehicleImpedanceShape sh:property era-sh:MinVehicleInputImpedance .
+era-sh:MinVehicleInputImpedance
+	a sh:PropertyShape ;     
+	era:affectedProperty era:minVehicleInputImpedance;     
+	era:affectedClass era:MinVehicleImpedance;     
+	era:scope "local";
+	rdfs:comment "For the selected DC voltage: [ZZZZ], as input impedance [ZZZZ](Zin)." ;
+	sh:path era:minVehicleInputImpedance ;
+	sh:datatype xsd:double ;
+    sh:minCount 1;
+	sh:maxCount 1 ; # Functional property
 	sh:severity sh:Violation ;
-	sh:message "minVehicleInputImpedance:The Train Detection System {$this} ({?clsLabel}), has a 'track circuit' type that makes the minVehicleInputImpedance parameter applicable. This error is due to {?minVehicleImpedance} not having a value for such a parameter."@en ;
-    sh:prefixes era:;
-	sh:select """
-    PREFIX era: <http://data.europa.eu/949/>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
-			WHERE {
-                 $this era:trainDetectionSystemType <http://data.europa.eu/949/concepts/train-detection/rinf/10>;
-				 	   era:minVehicleImpedance ?minVehicleImpedance.
-				OPTIONAL{$this rdfs:label ?clsLabel} .
-                FILTER NOT EXISTS {?minVehicleImpedance era:minVehicleInputImpedance ?value} . 
-            }
-			""" .
+	sh:message "minVehicleInputImpedance: Each MinVehicleImpedance must define the minVehicleInputImpedance. This error may be due to not having a value, having more than one value or having a value that is not a double (real) number."@en .
+
+
+
+
 

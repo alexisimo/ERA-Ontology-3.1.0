@@ -188,7 +188,7 @@ era-sh:HasSchematicOverviewOPDigitalForm
 		[sh:class era:RunningTrack ;]
 		);
  	sh:severity sh:Violation ;
- 	sh:message "hasPart from an operational point : The Operational Point may have a siding (hasPart) reference that is a Siding object or a track (hasPart) reference that is a Track object. This error mey be due to a hasPart relationship from an operational point that is not a Siding nor a Track."@en .
+ 	sh:message "hasPart from an operational point : The Operational Point may have a siding (hasPart) reference that is a Siding object or a track (hasPart) reference that is a Track object. This error may be due to a hasPart relationship from an operational point that is not a Siding nor a Track."@en .
 
 
 # uopid: # 1.2.0.0.0.2 enforce the border point constraint, if an OP is a border point, it should point to ReferenceBorderPoint and its uopid but be the code in the RefenreceBorderPoint class.
@@ -216,6 +216,21 @@ era-sh:HasSchematicOverviewOPDigitalForm
                FILTER (?uopid != era:borderPointId) .
 			}
 			""" .
+
+# referenceBorderPoint: 
+ era-sh:OperationalPointShape sh:property era-sh:ReferenceBorderPoint .
+ era-sh:ReferenceBorderPoint
+ 	a sh:PropertyShape;
+    era:affectedClass era:OperationalPoint;
+    era:affectedProperty era:referenceBorderPoint;
+    era:scope "local";
+ 	rdfs:comment "Relates an operational point that is a border point with an instance of the list of reference border points that are specified in the RINF Application Guide."@en ;
+ 	sh:path era:referenceBorderPoint ;
+ 	sh:nodeKind sh:IRI ;
+    sh:class era:ReferenceBorderPoint;
+    sh:maxCount 1;
+ 	sh:severity sh:Violation ;
+ 	sh:message "referenceBorderPoint : The Operational Point may have a reference border pointthat is a ReferenceBorderPoint object. This error may be due to having more than one value of a reference border point, or having a value that is not a ReferenceBorderPoint instance."@en .
 
 
 

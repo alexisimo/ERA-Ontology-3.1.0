@@ -996,7 +996,7 @@ era-sh:RaisedPantographsDistance
 	sh:path era:raisedPantographsSpeed ;
 	sh:datatype xsd:integer ;
 	sh:severity sh:Violation ;
-	sh:message "Raised pantographs speed (1.1.1.2.3.3): The track or subset with common characteristics must have a raised pantographs distance and speed with a value of speed that is an integer. This error is due to having a RaisedPantographDistanceAndSpeed with no value of speed, more than one value of speed or having a value that is not an integer."@en .
+	sh:message "raised pantographs speed (1.1.1.2.3.3): The track or subset with common characteristics must have a raised pantographs distance and speed with a value of speed that is an integer. This error is due to having a RaisedPantographDistanceAndSpeed with no value of speed, more than one value of speed or having a value that is not an integer."@en .
 
 # raisedPantographsNumber: # 1.1.1.2.3.3
  era-sh:RaisedPantographsDistanceAndSpeedShape sh:property era-sh:RaisedPantographsNumber.
@@ -2345,33 +2345,33 @@ era-sh:StandardCombinedTransportContainersSKOS
 	}
 """ .
 
-# standardCombinedRollerUnits: # 1.1.1.1.3.9
+# standardCombinedTransportRollerUnits: # 1.1.1.1.3.9
 era-sh:RunningTrackShape sh:property era-sh:StandardCombinedRollerUnits .
 era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:StandardCombinedRollerUnits .
 era-sh:StandardCombinedRollerUnits
 	a sh:PropertyShape ;
-    era:affectedProperty era:standardCombinedRollerUnits;
+    era:affectedProperty era:standardCombinedTransportRollerUnits;
     era:affectedClass era:RunningTrack;
     era:scope "local";
 	rdfs:comment "Coding for combined transport for roller units (for all freight and mixed-traffic lines) in accordance with the specification referenced in Appendix A-1, index [B]." ;
 	era:rinfIndex "1.1.1.1.3.9" ;
-	sh:path era:standardCombinedRollerUnits ;
+	sh:path era:standardCombinedTransportRollerUnits ;
 	sh:nodeKind sh:IRI ;
 	sh:severity sh:Violation ;
-	sh:message "standardCombinedRollerUnits (1.1.1.1.3.9): The track or subset with common characteristics defines a standard combined transport profile number for roller units. This error is due to having  or having a value that is not  an IRI."@en .
+	sh:message "standardCombinedTransportRollerUnits (1.1.1.1.3.9): The track or subset with common characteristics defines a standard combined transport profile number for roller units. This error is due to having  or having a value that is not  an IRI."@en .
 
-# standardCombinedRollerUnits: # 1.1.1.1.3.9
+# standardCombinedTransportRollerUnits: # 1.1.1.1.3.9
 era-sh:RunningTrackShape sh:sparql era-sh:StandardCombinedRollerUnitsSKOS .
 era-sh:CommonCharacteristicsSubsetShape sh:sparql era-sh:StandardCombinedRollerUnitsSKOS .
 era-sh:StandardCombinedRollerUnitsSKOS
 	a sh:SPARQLConstraint ;
-    era:affectedProperty era:standardCombinedRollerUnits;
+    era:affectedProperty era:standardCombinedTransportRollerUnits;
     era:affectedClass  era:RunningTrack;
     era:scope "local";  
     rdfs:comment "Coding for combined transport for roller units (for all freight and mixed-traffic lines) in accordance with the specification referenced in Appendix A-1, index [B]." ;
 	era:rinfIndex "1.1.1.1.3.9" ;
 	sh:severity sh:Violation ;
-    sh:message "standardCombinedRollerUnits (1.1.1.1.3.9):): The track or subset with common characteristics  {$this} in the Section of Line {$this}  has a value {?concept} that is not one of the predefined values and cannot be converted into a SKOS concept on this list: http://data.europa.eu/949/concepts/standard-combined-transport-roller-units/StandardCombinedTransportRollerUnits."@en ;
+    sh:message "standardCombinedTransportRollerUnits (1.1.1.1.3.9):): The track or subset with common characteristics  {$this} in the Section of Line {$this}  has a value {?concept} that is not one of the predefined values and cannot be converted into a SKOS concept on this list: http://data.europa.eu/949/concepts/standard-combined-transport-roller-units/StandardCombinedTransportRollerUnits."@en ;
     sh:prefixes era:;
 	sh:select """
     PREFIX era: <http://data.europa.eu/949/>
@@ -2379,8 +2379,8 @@ era-sh:StandardCombinedRollerUnitsSKOS
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     SELECT $this  ?concept
     WHERE {
-        $this era:standardCombinedRollerUnits ?concept .
-        era:standardCombinedRollerUnits era:inSkosConceptScheme ?conceptScheme .
+        $this era:standardCombinedTransportRollerUnits ?concept .
+        era:standardCombinedTransportRollerUnits era:inSkosConceptScheme ?conceptScheme .
 		FILTER NOT EXISTS{         
   			?concept skos:inScheme ?conceptScheme .
 		}
