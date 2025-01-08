@@ -71,7 +71,7 @@ era-sh:EtcsBaselineApplicability
 	sh:select """
     PREFIX era: <http://data.europa.eu/949/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
+    SELECT DISTINCT $this ?thisLabel
 			WHERE {
                  $this era:etcsLevelType ?type.
 				OPTIONAL{$this rdfs:label ?thisLabel} .
@@ -135,7 +135,7 @@ era-sh:EtcsInfillApplicability
 	sh:select """
     PREFIX era: <http://data.europa.eu/949/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
+    SELECT DISTINCT $this ?thisLabel
 			WHERE {
                  $this era:etcsLevelType <http://data.europa.eu/949/concepts/etcs-levels/20>.
 				OPTIONAL{$this rdfs:label ?thisLabel} .
@@ -198,7 +198,7 @@ era-sh:EtcsMVersionApplicability
 	sh:select """
     PREFIX era: <http://data.europa.eu/949/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
+    SELECT DISTINCT $this ?thisLabel
 			WHERE {
                  $this era:etcsLevelType <http://data.europa.eu/949/concepts/etcs-levels/20>.
 				OPTIONAL{$this rdfs:label ?thisLabel} .
@@ -275,7 +275,7 @@ era-sh:EtcsTransmitsTrackConditionsApplicability
 	sh:select """
     PREFIX era: <http://data.europa.eu/949/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
+    SELECT DISTINCT $this ?thisLabel
 			WHERE {
                  $this era:etcsLevelType ?type.
 				OPTIONAL{$this rdfs:label ?thisLabel} .
@@ -339,7 +339,7 @@ era-sh:EtcsTransmittedTrackConditionsApplicability
 	sh:select """
     PREFIX era: <http://data.europa.eu/949/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
+    SELECT DISTINCT $this ?thisLabel
 			WHERE {
                  $this era:etcsLevelType ?type.
 				OPTIONAL{$this rdfs:label ?thisLabel} .
@@ -400,7 +400,7 @@ era-sh:EtcsSystemCompatibilityApplicability
 	sh:select """
     PREFIX era: <http://data.europa.eu/949/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT DISTINCT $this ?clsLabel
+    SELECT DISTINCT $this ?thisLabel
 			WHERE {
                  $this era:etcsLevelType ?type.
 				OPTIONAL{$this rdfs:label ?thisLabel} .

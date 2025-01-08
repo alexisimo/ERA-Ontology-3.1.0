@@ -31,6 +31,14 @@ era-sh:BasicElementShape
 	a sh:NodeShape ;
 	sh:targetClass era:BasicElement .  
 
+era-sh:ParameterApplicabilityShape
+	a sh:NodeShape ;
+	sh:targetClass era:ParameterApplicability.
+
+era-sh:SubsidiaryLocationShape
+	a sh:NodeShape ;
+	sh:targetClass era:SubsidiaryLocation.
+
 
 
 
@@ -190,7 +198,7 @@ era-sh:Contains
     era:affectedClass era:CommonCharacteristicsSubset;
     era:affectedProperty era:contains ;
     era:scope "local";
-	rdfs:comment "Relationship between an a common characteristics subset and an infrastructure element (inverse of belongsTo)." ;
+	rdfs:comment "Relationship between a common characteristics subset and an infrastructure element (inverse of belongsTo)." ;
 	sh:path era:contains ;
 	sh:class era:InfrastructureElement;
 	sh:severity sh:Violation ;

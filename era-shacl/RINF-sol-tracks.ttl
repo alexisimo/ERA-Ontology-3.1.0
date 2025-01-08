@@ -1205,7 +1205,7 @@ era-sh:TrackSystemSeparationInfo
 	sh:message "System separation info km : The track has a system separation info with the location from the start of the line value (km), that must be a double.This error may be due to the track having a SystemSeparationInfo with no value, more than one value, or  a value that is not a double (real) number. "@en .
 
 # systemSeparationInfoLength: 
- era-sh:RunningTrackShape sh:property era-sh:SystemSeparationInfoLength.
+ era-sh:SystemSeparationInfoShape sh:property era-sh:SystemSeparationInfoLength.
 era-sh:SystemSeparationInfoLength
 	a sh:PropertyShape ; era:affectedProperty era:systemSeparationInfoLength  ;          era:scope "local";     
     era:affectedClass  era:SystemSeparationInfo;
@@ -1529,7 +1529,7 @@ era-sh:LinesideDistanceIndication
 	sh:path era:linesideDistanceIndication;
     sh:class era:LinesideDistanceIndication;
     sh:node era-sh:LinesideDistanceIndicationShape;
-    sh:minCount 1;
+    #sh:minCount 1; Not mandatory for subset with common characteristics
     sh:maxCount 1;
     era:rinfIndex "1.1.1.0.0.3";
 	sh:nodeKind sh:IRI;
@@ -1577,7 +1577,6 @@ era-sh:LinesideDistanceIndicationPositioningSKOS
 
 # linesideDistanceIndicationAppearance: 
 era-sh:LinesideDistanceIndicationShape sh:property era-sh:LinesideDistanceIndicationAppearance.
-era-sh:CommonCharacteristicsSubsetShape sh:property era-sh:LinesideDistanceIndicationAppearance.
 era-sh:LinesideDistanceIndicationAppearance
 	a sh:PropertyShape ; era:affectedProperty era:linesideDistanceIndicationAppearance  ;     era:affectedClass  era:RunningTrack;     era:scope "local";     
 	rdfs:comment "Indication of types of appearance of track lineside distance indications." ;

@@ -48,7 +48,6 @@ era-sh:HasGeometry
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:class geosparql:Geometry;
-    sh:node era-sh:GeometryShape;
 	sh:severity sh:Violation ;
 	sh:message "hasGeometry (1.2.0.0.0.5):  Each feature must have at most one location. This error may be due to having a feature with more than one location or having a value that is not a geosparql:Geometry."@en .
 
@@ -66,7 +65,6 @@ era-sh:HasGeometry
      era:affectedClass geosparql:Geometry;
      era:affectedProperty wgs:lat ;
      era:scope "local";
-	 sh:targetClass geosparql:Geometry ;
 	 sh:path wgs:lat ;
  	 sh:maxCount 1 ;
  	 sh:minInclusive 34;
@@ -76,13 +74,12 @@ era-sh:HasGeometry
  	 sh:message "wgs:lat property. This error may be due to having a Geometry with more than one lat property or it value is out of the latitude range of Europe." .
 
 #  wgs:long
-era-sh:locationShape sh:property era-sh:Long .
+era-sh:GeometryShape sh:property era-sh:Long .
 era-sh:Long
  	a sh:PropertyShape;
      era:affectedClass geosparql:Geometry;
      era:affectedProperty wgs:long ;
      era:scope "local";
- 	sh:targetClass geosparql:Geometry ;
  	sh:path wgs:long ;
  	sh:maxCount 1 ;
  	sh:minInclusive -25;
@@ -98,27 +95,9 @@ era-sh:Long
     era:affectedClass geosparql:Geometry;
      era:affectedProperty geosparql:asWKT ;
      era:scope "local";
- 	sh:targetClass geosparql:Geometry ;
  	sh:path geosparql:asWKT ;
  	sh:minCount 1 ;
  	sh:maxCount 1 ;
  	sh:datatype geosparql:wktLiteral ;
  	sh:severity sh:Violation ;
  	sh:message "geosparql:Geometry. This error may be due to having a Geometry without or with more than one asWKT property or it value is not from the wktLiteral type." .
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

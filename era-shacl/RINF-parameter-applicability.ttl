@@ -37,7 +37,7 @@ era-sh:OfParameter
  		[sh:class owl:ObjectProperty ;]
 		[sh:class owl:DatatypeProperty ;]
 		);
-    sh:minCount 1; 
+    #sh:minCount 1; cannot be mandatory for common characteristics subset
     sh:maxCount 1 ;
 	sh:severity sh:Violation ;
 	sh:message "ofParameter: An instance of parameter applicability must have exactly one value of the characteristic (ofParameter) to which it applies to. This error may be due to not having a value, having more than one value, having a value that is not an IRI or is not an object or datatype property in the ontology."@en .
@@ -54,7 +54,7 @@ era-sh:HasBeginning
 	sh:path time:hasBeginning ;
     sh:nodeKind sh:IRI ;
     sh:class time:Instant;
-    sh:minCount 1; 
+    #sh:minCount 1; cannot be mandatory for common characteristics subset
     sh:maxCount 1 ;
 	sh:severity sh:Violation ;
 	sh:message "hasBeginning: An instance of parameter applicability must have exactly one value of the beginning of the interval in which it is applicable. This error may be due to not having a value, having more than one value, having a value that is not an IRI or is not a time:Instant."@en .
@@ -71,7 +71,7 @@ era-sh:HasEnd
 	sh:path time:hasEnd ;
     sh:nodeKind sh:IRI ;
     sh:class time:Instant;
-    sh:minCount 1; 
+    # sh:minCount 1; cannot be mandatory for common characteristics subset
     sh:maxCount 1 ;
 	sh:severity sh:Violation ;
 	sh:message "hasEnd: An instance of parameter applicability must have exactly one value of the end of the interval in which it is applicable. This error may be due to not having a value, having more than one value, having a value that is not an IRI or is not a time:Instant."@en .
@@ -87,7 +87,7 @@ era-sh:ParameterValueType
 	rdfs:comment "In the case of a change in the value of a parameter, there needs to be an information on the type of the new value. The “Value type” will have different possible options: “nominal”, “planned temporary restriction”, “permanent restriction”, “planned temporary closure."@en ;
 	sh:path time:parameterValueType ;
     sh:nodeKind sh:IRI ;
-    sh:minCount 1; 
+    # sh:minCount 1; cannot be mandatory for common characteristics subset
     sh:maxCount 1 ;
 	sh:severity sh:Violation ;
 	sh:message "parameterValueType: An instance of parameter applicability must have exactly one value of the parameter value type. This error may be due to not having a value, having more than one value, having a value that is not an IRI."@en .
@@ -128,7 +128,7 @@ era-sh:ParameterValue
     era:scope "local";
 	rdfs:comment "This property is used to link an applicability to the precise value of the parameter"@en ;
 	sh:path time:parameterValue ;
-    sh:minCount 1; 
+    # sh:minCount 1; cannot be mandatory for common characteristics subset
     sh:maxCount 1 ;
 	sh:severity sh:Violation ;
 	sh:message "parameterValue: An instance of parameter applicability must have exactly one value of the parameter value. This error may be due to not having a value or having more than one value."@en .
